@@ -1,0 +1,74 @@
+package BinaryTree;
+
+public class sizeSumMaxHeight {
+    public class Node {
+        int data;
+        Node left;
+        Node right;
+
+        Node(int data, Node left, Node right) {
+            this.data = data;
+            this.left = left;
+            this.right = right;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        
+
+        // only the fun
+
+        getHeight(Node node){
+            if(node==null){
+                return 0;
+            }
+            int left=getHeight(root.left);
+            int right=getHeight(root.right);
+            int ans=1+Math.max(left,right);
+
+            return ans;
+
+        }
+
+        getSum(Node node){
+            if(node==null){
+                return 0;
+            }
+            int left=getSum(root.left);
+            int right=getSum(root.right);
+            int ans=node.data + left + right ;
+
+            retun ans;
+
+        }
+
+        getSize(Node node){
+            if(node==null){
+                return 0;
+            }
+
+            int left=getSize(node.left);
+            int right=getSize(node.right);
+            int ans=1+left+right;
+
+            return ans;
+        }
+        //max in tree
+
+        Max(Node node){
+
+            if(node==null){
+                return Integer.MIN_VALUE;
+            }
+
+            int left=max(node.left);
+            int right=max(node.right);
+
+            int ans=Math.max(node.data,Math.max(left,right));
+
+            retyn ans;
+        }
+
+    }
+}

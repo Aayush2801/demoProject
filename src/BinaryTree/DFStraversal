@@ -1,0 +1,41 @@
+// only function
+
+class DFS{
+    
+    // inorder
+
+    inorder(Node node){
+        //left root right;
+
+        if(node==null){
+            return;
+        }
+
+        inorder(node.left);
+        print(node.data);
+        inorder(node.right);
+    }
+    preorder(Node node){
+        //root left right;
+
+        if(node==null){
+            return;
+        }
+        print(node.data);
+        preorder(node.left);
+   
+        preorder(node.right);
+    }
+    postorder(Node node){
+        //right  left  root;
+
+        if(node==null){
+            return;
+        }
+
+        inorder(node.right);
+        preorder(node.left);
+        print(node.data);
+       
+    }
+}
