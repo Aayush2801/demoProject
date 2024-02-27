@@ -1,0 +1,66 @@
+
+// idea is to add the left most nodes first then add the leaf nodes ..then add the right most nodes but in reverse order.
+
+// 2nd way - or you can do a level order traversal and maintain a and arraylist and a temp arraylist for every level add the root node in ans 
+//after that add only the first and last of temp in the main array.and add every leaf node ..delte the last left and last right node 
+// so that it doesnt repeat
+
+class Solution
+{
+    boolean isleaf( Node node){
+        if(node.left==null && node.right==null){
+            return true;
+        }
+        return false;
+    }
+	ArrayList <Integer> boundary(Node node)
+	{
+	    ArrayList<Integer> ans=new ArrayList<>();
+	    if(isleaf(node)==false) ans.add(node.data);
+	    addleft(node,ans);
+	    addleaves(node,ans);
+	    addright(node,ans);
+	    
+	    return ans;
+	}
+	void addleft(Node node,ArrayList<Integer> ans){
+	    Node curr=node.left;
+	    while(curr!=null){
+	        if(isleaf(curr)==false){
+	            ans.add(curr.data);
+	        }
+	        if(curr.left!=null){
+	            curr=curr.left;
+	        }else
+	        curr=curr.right;
+	    }
+	}
+	void addleaves(Node node,ArrayList<Integer> ans){
+	    if(isleaf(node)){
+	        ans.add(node.data);
+	    }
+	    if(node.left!=null){
+	        addleaves(node.left,ans);
+	    }
+	    if(node.right!=null){
+	        addleaves(node.right,ans);
+	    }
+	}
+	void addright(Node node,ArrayList<Integer> ans){
+	    Node curr=node.right;
+	    ArrayList<Integer> temp=new ArrayList<>();
+	    while(curr!=null){
+	        if(isleaf(curr)==false){
+	            temp.add(curr.data);
+	        }
+	        if(curr.right!=null){
+	            curr=curr.right;
+	        }else
+	        curr=curr.left;
+	    }
+	    
+	    for(int i=temp.size()-1;i>=0;i--){
+	        ans.add(temp.get(i));
+	    }
+	}
+}

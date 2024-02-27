@@ -1,0 +1,29 @@
+// DFS Approach
+// 110 leetcode.
+
+// it require a bool return val ;
+// idea is to check if left height - right height must v smaller than 1.
+// optimal approach is to create a helper fuction that takes the root and return a int val .
+// it will return -1 if it is not balanced.
+// and +ve int height in other case , whenver we get -1 from helper func we return false in main func.
+
+public boolean isBalanced(TreeNode root) {
+        
+    return dfsHeight(root)!=-1;
+   }
+
+   int dfsHeight(TreeNode root){
+       if(root==null){
+           return 0;
+       }
+
+       int lh=dfsHeight(root.left);
+       if(lh==-1) return -1;
+       int rh=dfsHeight(root.right);
+       if(rh==-1) return -1;
+
+       if(Math.abs(lh-rh)>1) return -1;
+
+       return Math.max(lh,rh)+1;
+
+   }
