@@ -1,6 +1,6 @@
 // leetcode 103.
 
-//
+// maintain a letftoright variable whenver it is odd add the reverse of the subArray in ans array.
 
 public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> list=new ArrayList<>();
