@@ -1,0 +1,17 @@
+int function (TreeNode root,int key){
+// ceil is smallest value greater than key.
+    int ceil=-1;
+
+    while(root!=null){
+        if(root.val==key){
+            return root.val;
+        }
+
+        if(root.val<key){
+            ceil=root.val;
+            root=root.left;
+        }
+        else
+        root=root.right;
+    }
+}

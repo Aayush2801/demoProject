@@ -1,0 +1,17 @@
+int function (TreeNode root,int key){
+// floor is freatest value smaller than key.
+    int floor=-1;
+
+    while(root!=null){
+        if(root.val==key){
+            return root.val;
+        }
+
+        if(root.val>key){
+            floor=root.val;
+            root=root.right;
+        }
+        else
+        root=root.left;
+    }
+}
