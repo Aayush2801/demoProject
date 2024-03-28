@@ -1,0 +1,23 @@
+//leetcode 328.
+
+// Approach - make two different list of odd and even pos element..lastly join the last node's next to head of other list .
+
+// keep two pointers odd even..move then to next of next ,then move the element to next pos.lastly join the next of las t to even head ..keep track of even head
+
+
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+if(head==null || head.next==null) return head;
+        ListNode odd=head;
+        ListNode even=head.next;
+        ListNode evenHead=head.next;
+        while(even !=null && even.next!=null){
+            odd.next=odd.next.next;
+            even.next=even.next.next;
+            odd=odd.next;
+            even=even.next; 
+        }
+        odd.next=evenHead;
+        return head;
+}
+}

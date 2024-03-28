@@ -1,0 +1,22 @@
+//leetcode 235.
+// the approach is that ....find the node from where..both p and q..are on the either side of the root....the point from where
+// both nodes are on diff side of node ..is the lCA..before that ..just move the root node to the side where both are ..either greateer or smaller.
+
+
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+       
+
+     while(root!=null){
+        if(root.val>p.val && root.val>q.val){
+            root=root.left;
+        }
+        else if(root.val<p.val && root.val<q.val){
+            root=root.right;
+        }
+        else
+        return root;
+     }
+       return root;
+    }
+}
